@@ -196,6 +196,11 @@ For Ubuntu, this PPA provides the latest stable upstream Git version
 # add-apt-repository ppa:git-core/ppa # apt update; apt install git
 ```
 
+Installation command for RHEL/Fedora/RedOS:
+```sh
+$ dnf install git
+```
+
 To check the git version use any of the following commands:
 - `git --version`
 - `git -v`
