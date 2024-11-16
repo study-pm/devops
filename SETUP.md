@@ -3,6 +3,7 @@
 - [Overview](#overview)
   - [About this file](#about-this-file)
 - [Prerequisites](#prerequisites)
+  - [Adding root privileges to user](#adding-root-privileges-to-user)
   - [Git](#git)
     - [Linux](#linux)
     - [Windows](#windows)
@@ -19,6 +20,37 @@ This file provides detailed setup instructions for developers and maintainers, s
 
 ## Prerequisites
 Before fetching and installing the project you must have the appropriate working environment. The project can be operated on Linux or Windows systems and requires some special software.
+
+### Adding root privileges to user
+Consider the user named `student`. Add the following line to the *sudoers* file: `student ALL = (ALL) ALL`.
+
+```sh
+$ echo "student ALL = (ALL) ALL" >> /etc/sudoers
+```
+
+or
+
+```sh
+$ echo "student ALL = (ALL:ALL) ALL" >> /etc/sudoers
+```
+
+What is the difference between the two?
+
+```
+root ALL=(ALL:ALL) ALL
+```
+
+https://askubuntu.com/questions/546219/what-is-the-difference-between-root-all-allall-all-and-root-all-all-all
+
+- The first field indicates the username that the rule will apply to (`root`).
+
+- First “ALL” indicates that this rule applies to all hosts.
+
+- Second “ALL” indicates that the root user can run commands as all users.
+
+- Third “ALL” indicates that the root user can run commands as all groups.
+
+- Forth “ALL” indicates these rules apply to all commands.
 
 ### Git
 Git is necessary to fetch, commit and deliver the source code. Detailed setup instructions are layed down on the [official git site](https://git-scm.com/downloads).
