@@ -16,7 +16,7 @@ The purpose of this file is to provide basic overview, setup, usage and other in
 | | |
 -- | --
 **Title** | МДК.04.01 Внедрение и поддержка программного обеспечения компьютерных систем
-**Url** |
+**Url** | nebula.petrocollege.ru
 **Released** |
 **Authors** | Палладий Н.А.
 **Publishers** | Петровский колледж
