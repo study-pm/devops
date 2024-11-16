@@ -16,6 +16,9 @@
     - [Windows](#windows)
       - [Using installer](#using-installer)
       - [Using winget tool](#using-winget-tool)
+  - [Visual Studio Code](#visual-studio-code)
+    - [Donwload package](#donwload-package)
+    - [Install with flatpack](#install-with-flatpack)
 - [Fetch code](#fetch-code)
 
 ## Overview
@@ -215,6 +218,65 @@ You can download git for Windows from installer from https://git-scm.com/downloa
 Install winget tool if you don't already have it, then type this command in command prompt or Powershell.
 ```ps
 $ winget install --id Git.Git -e --source winget
+```
+
+### Visual Studio Code
+
+#### Donwload package
+
+You can donwload and install the appropriate package for your system at the official page: https://code.visualstudio.com/.
+
+#### Install with flatpack
+https://redos.red-soft.ru/base/redos-7_3/7_3-development/7_3-ide/7_3-visual-studio-code/?nocache=1731766975842
+
+To install in RedOS with flatpack you have to install flatpack first (see  [the details here](https://redos.red-soft.ru/base/redos-7_3/7_3-administation/7_3-isolated-env/7_3-flatpak/?nocache=1731766990407))
+```sh
+$ sudo dnf install flatpak
+```
+
+Add the required repository (see [the details here](https://redos.red-soft.ru/base/redos-7_3/7_3-administation/7_3-isolated-env/7_3-flatpak/#add?nocache=1731773127306)).
+
+Add flathub repo:
+```sh
+$ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
+Add Gnome repo:
+```sh
+$ flatpak remote-add --user --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
+```
+
+Add KDE repo:
+```sh
+$ flatpak remote-add --user --if-not-exists kdeapps --from https://distribute.kde.org/kdeapps.flatpakrepo
+```
+
+List all added repositories:
+```sh
+$ flatpak remotes
+
+ Name       Параметры
+ flathub    user
+```
+
+The next step would be installing vscode from flathub:
+```sh
+$ flatpak install flathub com.visualstudio.code
+```
+
+Wait for completion. After that you will be able to run the application:
+```sh
+$ flatpak run com.visualstudio.code
+```
+
+Check vscode version:
+```sh
+$ code --version
+```
+
+or:
+```sh
+$ code -v
 ```
 
 ## Fetch code
