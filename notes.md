@@ -204,7 +204,7 @@
 
 ![Сеть Docker](./img/d4536a49030b09ebbe0adb09ec4e0598.png "Сеть Docker")
 
-Сеть Docker (взято из [документации](https://docs.docker.com/engine/tutorials/networkingcontainers/))
+*Сеть Docker (взято из [документации](https://docs.docker.com/engine/tutorials/networkingcontainers/))*
 
 Сетевые механизмы Docker ([Docker Networking](https://docs.docker.com/engine/tutorials/networkingcontainers/)) позволяют организовывать связь между контейнерами Docker. Соединённые с помощью сети контейнеры могут выполняться на одном и том же хосте или на разных хостах. Подробности о сетевой подсистеме Docker можно почитать [здесь](https://www.oreilly.com/learning/what-is-docker-networking).
 
