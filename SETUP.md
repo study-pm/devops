@@ -20,6 +20,7 @@
   - [Visual Studio Code](#visual-studio-code)
     - [Donwload package](#donwload-package)
     - [Install with flatpack](#install-with-flatpack)
+- [PostgreSQL](#postgresql)
 - [Fetch code](#fetch-code)
 
 ## Overview
@@ -281,6 +282,9 @@ or:
 ```sh
 $ code -v
 ```
+
+## PostgreSQL
+PostgreSQL is available for download as ready-to-use packages or installers for various platforms, as well as a source code archive if you want to build it yourself. Go to the [official download page](https://www.postgresql.org/download/) to get the installation instructions considering your specific case.
 
 ## Fetch code
 1. Use `git clone` command to fetch the source code from a remote repository. Using `--recurse-submodules` option will automatically initialize and update each submodule in the repository, including nested submodules if any of the submodules in the repository have submodules themselves.
