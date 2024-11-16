@@ -16,6 +16,7 @@
     - [Windows](#windows)
       - [Using installer](#using-installer)
       - [Using winget tool](#using-winget-tool)
+- [Code editor](#code-editor)
   - [Visual Studio Code](#visual-studio-code)
     - [Donwload package](#donwload-package)
     - [Install with flatpack](#install-with-flatpack)
@@ -219,6 +220,8 @@ Install winget tool if you don't already have it, then type this command in comm
 ```ps
 $ winget install --id Git.Git -e --source winget
 ```
+
+## Code editor
 
 ### Visual Studio Code
 
