@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Runs the full command sequence
+
+# Build a Docker Image
+./build.sh
+
+# Tagging the Image as labs-git
+./tag.sh
+
+# Verify the Images
+./verify.sh
+
+# Create a Container
+./run.sh
+
+# List the Container
+./list.sh
+
+# Enter into Container Shell
+./attach.sh
+
+# Verify if GIT is installed by typing: git --version
+# Should display the following line: git version 2.13.7
+# Type "exit" to escape the container shell
