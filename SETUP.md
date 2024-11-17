@@ -25,6 +25,14 @@
   - [Key moments](#key-moments)
   - [Extra options](#extra-options)
   - [Troubleshooting](#troubleshooting)
+- [Docker](#docker)
+  - [Install Docker Desktop](#install-docker-desktop)
+  - [Install Docker Engine](#install-docker-engine)
+    - [Install Docker Engine on Ubuntu](#install-docker-engine-on-ubuntu)
+      - [Prerequisites](#prerequisites-1)
+        - [Firewall limitations](#firewall-limitations)
+        - [OS requirements](#os-requirements)
+        - [Uninstall old versions](#uninstall-old-versions)
       - [Installation methods](#installation-methods)
         - [Install using the `apt` repository](#install-using-the-apt-repository)
         - [Upgrade Docker Engine](#upgrade-docker-engine)
@@ -39,6 +47,7 @@
     - [Configure Docker to start on boot with systemd](#configure-docker-to-start-on-boot-with-systemd)
     - [Configure default logging driver](#configure-default-logging-driver)
 - [Fetch code](#fetch-code)
+
 
 ## Overview
 
@@ -434,18 +443,18 @@ If you cannot connect to PostgreSQL via `pgadmin4` follow these steps:
 4. Assign a password to the **`postgres`** user for remote database administration:
 
    ```sh
-    su - postgres
-    psql
-    ALTER USER postgres WITH ENCRYPTED PASSWORD 'yourpassword';
-    ```
+   su - postgres
+   psql
+   ALTER USER postgres WITH ENCRYPTED PASSWORD 'yourpassword';
+   ```
 
-    where `yourpassword` stands for the password you set.
+   where `yourpassword` stands for the password you set.
 
 5. To apply the changes you must restart the **`postgresql`** service:
 
-    ```sh
-    $ systemctl restart postgresql-15.service
-    ```
+   ```sh
+   $ systemctl restart postgresql-15.service
+   ```
 
 ## Docker
 https://docs.docker.com/get-started/get-docker/
