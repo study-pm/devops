@@ -240,6 +240,7 @@ $ winget install --id Git.Git -e --source winget
 ```
 
 ## Code editor
+Install any code editor to browse the repo and documentation. We recommend using the Microsoft Visual Studio Code which is free and available for all the most popular systems &mdash; Windows, macOS and Linux.
 
 ### Visual Studio Code
 
