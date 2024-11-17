@@ -21,14 +21,10 @@
     - [Donwload package](#donwload-package)
     - [Install with flatpack](#install-with-flatpack)
 - [PostgreSQL](#postgresql)
-- [Docker](#docker)
-  - [Install Docker Desktop](#install-docker-desktop)
-  - [Install Docker Engine](#install-docker-engine)
-    - [Install Docker Engine on Ubuntu](#install-docker-engine-on-ubuntu)
-      - [Prerequisites](#prerequisites-1)
-        - [Firewall limitations](#firewall-limitations)
-        - [OS requirements](#os-requirements)
-        - [Uninstall old versions](#uninstall-old-versions)
+  - [Installation instructions for RedOS](#installation-instructions-for-redos)
+  - [Key moments](#key-moments)
+  - [Extra options](#extra-options)
+  - [Troubleshooting](#troubleshooting)
       - [Installation methods](#installation-methods)
         - [Install using the `apt` repository](#install-using-the-apt-repository)
         - [Upgrade Docker Engine](#upgrade-docker-engine)
@@ -305,7 +301,150 @@ $ code -v
 ```
 
 ## PostgreSQL
-PostgreSQL is available for download as ready-to-use packages or installers for various platforms, as well as a source code archive if you want to build it yourself. Go to the [official download page](https://www.postgresql.org/download/) to get the installation instructions considering your specific case.
+**PostgreSQL** is a powerful, open source object-relational database that is available for download as ready-to-use packages or installers for various platforms, as well as a source code archive if you want to build it yourself. Go to the [official download page](https://www.postgresql.org/download/) to get the installation instructions considering your specific case.
+
+### Installation instructions for RedOS
+https://redos.red-soft.ru/base/redos-7_3/7_3-administation/7_3-smdb-in-ro/7_3-install-postgresql/?nocache=1731858553637
+
+1. Switch to the root mode
+
+   ```sh
+   $ su -
+   ```
+
+2. Run the installation command.
+
+    > **Note**: Number 15 in the examples below stands for the PostgreSQL version. Versions 12, 13, 14, 15, 16 are available via RedOS repositories. Default version (comes without number) is 12.
+
+    ```sh
+    dnf install postgresql15-server
+    ```
+
+3. Initialize the database.
+
+   ```sh
+   postgresql-15-setup initdb
+   ```
+
+4. After successful initialization run the **`postgresql`** service. To start a service at boot use the enable command.
+
+   ```sh
+   systemctl enable postgresql-15.service --now
+   ```
+
+5. Make sure the service is up and running.
+
+    ```sh
+    systemctl status postgresql-15.service
+    ```
+
+    You should see the **`active (running)`** status.
+
+6. Check the current version
+
+    ```sh
+    $ psql --version
+    ```
+
+    alternatively:
+    ```sh
+    $ psql -V
+    ```
+
+    or:
+    ```sh
+    $ pg_config --version
+    ```
+
+    It will show the current server version. To check the client version authorize as the `postgres` user, run the postgress shell (see below) and execute the `psql -V` command again.
+
+### Key moments
+
+Authorize as the **`postgres`** user:
+```sh
+su - postgres
+```
+
+To run the **postgres shell** (can be run with a **`postgres`** user only) execute the following command:
+```sh
+psql
+```
+
+Get the database list:
+```sh
+\l
+```
+
+Get the table list:
+```sh
+\dt *
+```
+
+Exit the **postgress shell**:
+```sh
+\q
+```
+
+Exit the current **postgres** account:
+```sh
+exit
+```
+
+### Extra options
+You can plug in the **`contrib`** catalogue to extend the **PostgreSQL** functions. It contains extra modules for porting, analysis, additional functions that aren not included in the standard package.
+
+!!! danger Important
+
+    These modules are experimental and targeted to the restricted audience.
+
+To plug in the **`contrib`** catalogue run:
+```sh
+$ dnf install postgresql15-contrib
+```
+
+### Troubleshooting
+If you cannot connect to PostgreSQL via `pgadmin4` follow these steps:
+
+1. Open the ***postgresql.conf*** file for editing:
+
+   ```sh
+   $ nano /var/lib/pgsql/15/data/postgresql.conf
+   ```
+
+2. Replace the string:
+
+   ```sh
+   # listen_addresses = 'localhost'
+   ```
+
+   with the following one:
+   ```sh
+   listen_addresses = '*'
+   ```
+
+3. Put the following config at the top of the ***/var/lib/pgsql/15/data/pg_hba.conf*** file (should be a first string of the file):
+
+   ```sh
+   host all all 0.0.0.0/0 md5
+   ```
+
+    This parameter allows access to all databases for all users with encrypted passwords.
+
+4. Assign a password to the **`postgres`** user for remote database administration:
+
+   ```sh
+    su - postgres
+    psql
+    ALTER USER postgres WITH ENCRYPTED PASSWORD 'yourpassword';
+    ```
+
+    where `yourpassword` stands for the password you set.
+
+5. To apply the changes you must restart the **`postgresql`** service:
+
+    ```sh
+    $ systemctl restart postgresql-15.service
+    ```
 
 ## Docker
 https://docs.docker.com/get-started/get-docker/
