@@ -55,21 +55,21 @@ RUN apk update
 RUN apk add git
 ```
 
-Put into *[create.sh](./create.sh)*.
+Placed into *[create.sh](./create.sh)*.
 
 #### Build Docker Image
 ```sh
 docker build -t ajeetraina/alpine-git .
 ```
 
-Put into *[build.sh](./build.sh)*.
+Placed into *[build.sh](./build.sh)*.
 
 #### Tagging image as labs-git
 ```sh
 docker tag ajeetraina/alpine-git ajeetraina/labs-git:v1.0
 ```
 
-Put into *[tag.sh](./tag.sh)*.
+Placed into *[tag.sh](./tag.sh)*.
 
 #### Verify the Images
 ```sh
@@ -79,14 +79,14 @@ ajeetraina/alpine-git   latest              cb913e37a593        16 seconds ago  
 ajeetraina/labs-git     v1.0                cb913e37a593        16 seconds ago      26.6MB
 ```
 
-Put into *[verify.sh](./verify.sh)*.
+Placed into *[verify.sh](./verify.sh)*.
 
 #### Create a container
 ```sh
 docker run -itd ajeetraina/labs-git:v1.0 /bin/sh
 ```
 
-Put into *[run.sh](./run.sh)*.
+Placed into *[run.sh](./run.sh)*.
 
 List containers:
 
@@ -96,14 +96,14 @@ CONTAINER ID        IMAGE                      COMMAND             CREATED      
 3e26a5268f55        ajeetraina/labs-git:v1.0   "/bin/sh"           4 seconds ago       Up 2 seconds                            elated_neumann
 ```
 
-Put into *[list.sh](./list.sh)*.
+Placed into *[list.sh](./list.sh)*.
 
 #### Enter into Container Shell
 ```sh
 docker attach 3e26
 ```
 
-Put into *[attach.sh](./attach.sh)*.
+Placed into *[attach.sh](./attach.sh)*.
 
 Please press <kbd>Enter</kbd> key twice so as to enter into container shell
 
