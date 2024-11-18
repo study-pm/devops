@@ -5,7 +5,6 @@ https://dockerlabs.collabnix.com/beginners/dockerfile/lab1_dockerfile_git.html
 - [Command Line Tools](#command-line-tools)
   - [Start the service](#start-the-service)
   - [Stop the service](#stop-the-service)
-  - [Example usage](#example-usage)
   - [Underlying commands](#underlying-commands)
     - [Creating Dockerfile](#creating-dockerfile)
     - [Build Docker Image](#build-docker-image)
@@ -45,12 +44,6 @@ alternatively:
 ```sh
 $ sh clear
 ```
-
-### Example usage
-
-![Example image](https://drive.google.com/uc?id=1Z4jjIVDxeUCk1DTBaYeD4sxwuqFrgn3B)
-
-<img src="https://drive.google.com/uc?id=1Z4jjIVDxeUCk1DTBaYeD4sxwuqFrgn3B" />
 
 ### Underlying commands
 There are multiple underlying scripts used for building the service functions. The sections below describe the commands used for managing the provided service and .
