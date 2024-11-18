@@ -1,0 +1,41 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Build a Docker Image
+./build.sh "$REPO:v1" "build1.Dockerfile"
+
+# Verify the Images
+./verify.sh
+
+# Create a Container
+./run.sh 1 80 "$REPO:v1"
+
+# List the Container
+./list.sh
+
+# Checking index file
+./check.sh
+
+# Should output the contents of the index.html file:
+# Welcome to Dockerlabs !
+
+# Build a Docker Image
+./build.sh "$REPO:v2" "build2.Dockerfile"
+
+# Verify the Images
+./verify.sh
+
+# Staring the container
+./run.sh 2 8080 "$REPO:v2"
+
+# List the Container
+./list.sh
+
+# Checking index file
+./check.sh 8080
+
+# Should output the contents of the index.html file:
+# Welcome to Dockerlabs !
