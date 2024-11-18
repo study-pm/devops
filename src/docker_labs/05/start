@@ -1,0 +1,32 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Build a Docker Image
+./build.sh "$REPO:v1" build1.Dockerfile
+
+# Verify the Image
+./verify.sh
+
+# Create a Container
+./run.sh $REPO v1 "${LABEL}-exec"
+
+# List the Container
+./list.sh
+
+# Build a Docker Image
+./build.sh "$REPO:v2" build2.Dockerfile
+
+# Verify the Image
+./verify.sh
+
+# Create a Container
+./run.sh $REPO v2 "${LABEL}-shell"
+
+# List the Container
+./list.sh
+
+# Override the existing ENTRYPOINT
+./override.sh "$REPO:v2" "${LABEL}-override"
