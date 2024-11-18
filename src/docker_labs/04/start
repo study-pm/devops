@@ -1,0 +1,15 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Build a Docker Image
+./build.sh "$NAMESPACE/$REPOSITORY" $DOCKERFILE
+
+# Create a Container
+./run.sh "$NAMESPACE/$REPOSITORY"
+
+# Should output the result of executing the top command
+# Which shows the running processes and allows to interactively manage them
+# Press ctrl + C to exit the container shell
