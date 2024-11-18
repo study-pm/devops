@@ -21,6 +21,8 @@ https://dockerlabs.collabnix.com/beginners/dockerfile/Lab-2-Create-an-image-with
     - [Enter into Container Shell](#enter-into-container-shell)
     - [Verify if the link has been extracted onto the container](#verify-if-the-link-has-been-extracted-onto-the-container)
 - [Troubleshooting / Utils / Trivia](#troubleshooting--utils--trivia)
+  - [`permission denied` error](#permission-denied-error)
+  - [`failed to read dockerfile` error](#failed-to-read-dockerfile-error)
 
 ## Assignment
 - Create an image with `ADD` instruction
@@ -130,6 +132,8 @@ Type in the following after entering into the respective container shell:
 `ADD` Command lets you to add a tar directly from a link and explode to the container.
 
 ## Troubleshooting / Utils / Trivia
+
+### `permission denied` error
 If you get the *permission denied* error while building the service scripts, make the script file executable:
 ```sh
 $ chmod +x start
@@ -139,3 +143,6 @@ or:
 ```
 $ chmod u+x clear
 ```
+
+### `failed to read dockerfile` error
+If you get the *ERROR: failed to solve: failed to read dockerfile* error while running the service, probably you have your *Dockerfile* or other crucial static files missing. Run the *[create.sh](./create.sh)* script before executing the *start* command.
