@@ -12,6 +12,7 @@ https://dockerlabs.collabnix.com/beginners/dockerfile/Lab-2-Create-an-image-with
   - [Start the service](#start-the-service)
   - [Stop the service](#stop-the-service)
   - [Underlying commands](#underlying-commands)
+    - [Pre-requisite](#pre-requisite)
     - [Creating Dockerfile](#creating-dockerfile)
     - [Build Docker Image](#build-docker-image)
     - [Tagging image as labs-add](#tagging-image-as-labs-add)
@@ -52,7 +53,13 @@ $ sh clear
 ```
 
 ### Underlying commands
-There are multiple underlying scripts used for building the service functions. The sections below describe the commands used for managing the provided service and .
+There are multiple underlying scripts used for building the service functions. The sections below describe the commands used for managing the provided service and building the necessary resources.
+
+#### Pre-requisite
+There should be the following files (committed) in your working directory:
+- *build.Dockerfile*
+
+In case any of them missing, run the *[create.sh](./create.sh)* script before executing the *start* command.
 
 #### Creating Dockerfile
 ```docker
