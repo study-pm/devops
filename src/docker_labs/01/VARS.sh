@@ -1,5 +1,5 @@
 # Named constants
-CONTAINER_NAME="alpine-git"
+CONTAINER_NAME="labs-git"
 IMG_NAME="ajeetraina/alpine-git"
 IMG_TAG="ajeetraina/labs-git"
 IMG_VERSION="v1.0"
