@@ -50,6 +50,8 @@ $ sh clear
 
 ![Example image](https://drive.google.com/uc?id=1Z4jjIVDxeUCk1DTBaYeD4sxwuqFrgn3B)
 
+<img src="https://drive.google.com/uc?id=1Z4jjIVDxeUCk1DTBaYeD4sxwuqFrgn3B" />
+
 ### Underlying commands
 There are multiple underlying scripts used for building the service functions. The sections below describe the commands used for managing the provided service and .
 
