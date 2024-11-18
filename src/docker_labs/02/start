@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Runs the full command sequence
+
+# Build a Docker Image
+./build.sh
+
+# Tagging the Image as labs-git
+./tag.sh
+
+# Verify the Images
+./verify.sh
+
+# Create a Container
+./run.sh
+
+# List the Container
+./list.sh
+
+# Enter into Container Shell
+./attach.sh
+
+# Verify if the link has been extracted onto the container
+# Type in: ls -ltr | grep pharosc
+# Should display the line containing the "pharosc_8.4.tar.gz" file
+# Type "exit" to escape the container shell
