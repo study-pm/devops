@@ -13,7 +13,7 @@ source VARS.sh
 # Create a container based on expose:v1 image
 ./run.sh $LABEL $REPO v1
 
-# List the Container
+# List the Containers
 ./list.sh
 
 # Inspecting the EXPOSE port in the image
