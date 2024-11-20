@@ -1,0 +1,17 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Building the base Docker Image
+./build.sh "$NAMESPACE/no_$REPO" base.Dockerfile
+
+# Verify the Image
+./verify.sh
+
+# Building the downstream Docker Image
+./build.sh "$NAMESPACE/$REPO" downstream.Dockerfile
+
+# Verify the Image
+./verify.sh
