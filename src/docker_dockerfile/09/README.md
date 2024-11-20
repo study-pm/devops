@@ -87,7 +87,7 @@ Placed into *[create.sh](./create.sh)*.
 #### Building Docker Image
 
 ```sh
-docker image build -t arg:v1 .
+$ docker image build -t arg:v1 .
 ```
 
 Placed into *[build.sh](./build.sh)*.
