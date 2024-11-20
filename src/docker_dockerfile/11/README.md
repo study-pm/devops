@@ -177,8 +177,8 @@ $ docker rmi <image>
 
 #### Create (run) a container
 ```sh
-$ docker container run <container>
-$ docker run <container>
+$ docker container run <image>
+$ docker run <image>
 ```
 
 #### List containers
