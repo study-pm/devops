@@ -1,0 +1,26 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Building Docker Image
+./build.sh "$REPO:v1"
+
+# Verify the Image
+./verify.sh
+
+# Create a container based on expose:v1 image
+./run.sh $LABEL $REPO v1
+
+# List the Container
+./list.sh
+
+# Inspecting the EXPOSE port in the image
+./inspect.sh image ".Config.ExposedPorts" "$REPO:v1"
+
+# Publish all exposed ports
+docker container run --rm -P -d --name "${LABEL}-Publish" "$REPO:v1"
+
+# Checking the publish port
+./list.sh
