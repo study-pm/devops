@@ -4,7 +4,7 @@
 
 source VARS.sh
 
-# Writing a Dockerfile with ARG instruction
+# Writing a Dockerfile with VOLUME instruction
 content="
 FROM nginx:alpine\n
 LABEL maintainer=\"Collabnix\"\n

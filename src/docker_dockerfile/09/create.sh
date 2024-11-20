@@ -4,7 +4,7 @@
 
 source VARS.sh
 
-# Writing a Dockerfile with ARG instruction
+# Writing a Dockerfile with ENV instruction
 content="
 FROM alpine:3.9.3\n
 LABEL maintainer=\"Collabnix\"\n
