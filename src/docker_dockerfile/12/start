@@ -1,0 +1,14 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Building Docker Image
+./build.sh "$REPO:v1"
+
+# Verify the Image
+./verify.sh
+
+# Inspecting the labels in the image
+./inspect.sh image ".Config.Labels" "$REPO:v1"
