@@ -11,7 +11,7 @@ source VARS.sh
 # Remove the images
 ./rm-img.sh "$REPO:v1"
 
-# List the Container (must be empty)
+# List the Containers (must be empty)
 ./list.sh
 
 # Verify the Images (must be empty)
