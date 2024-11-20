@@ -81,7 +81,10 @@ There are multiple underlying scripts used for building the service functions. T
 
 #### Pre-requisite
 There should be the following files (committed) in your working directory:
-- *Dockerfile_cmd*
+- *build1.Dockerfile*
+- *build2.Dockerfile*
+- *build3.Dockerfile*
+- *build4.Dockerfile*
 
 In case any of them missing, run the *[create.sh](./create.sh)* script before executing the *start* command.
 
