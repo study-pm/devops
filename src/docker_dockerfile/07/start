@@ -1,0 +1,23 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Building Docker image
+./build.sh "$REPO:v1" build1.Dockerfile
+
+# Verify the Image
+./verify.sh
+
+# Checking layer of the image
+./history.sh "$REPO:v1"
+
+# Building Docker image
+./build.sh "$REPO:v2" build2.Dockerfile
+
+# Verify the Image
+./verify.sh
+
+# Checking layer of the image
+./history.sh "$REPO:v2"
