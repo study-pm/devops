@@ -9,8 +9,8 @@ https://dockerlabs.collabnix.com/beginners/dockerfile/Lab%2310_VOLUME_instructio
     - [Pre-requisite](#pre-requisite)
     - [Create an image with `VOLUME` instruction](#create-an-image-with-volume-instruction)
       - [Create Dockerfile](#create-dockerfile)
-    - [Building Docker Image](#building-docker-image)
-    - [Create a container based on `volume:v1` image](#create-a-container-based-on-volumev1-image)
+      - [Building Docker Image](#building-docker-image)
+      - [Create a container based on `volume:v1` image](#create-a-container-based-on-volumev1-image)
     - [Finding the volume created on the host](#finding-the-volume-created-on-the-host)
       - [Checking the volume name of the container](#checking-the-volume-name-of-the-container)
       - [Listout Volume in the host](#listout-volume-in-the-host)
@@ -97,7 +97,7 @@ CMD [ "nginx","-g","daemon off;" ]
 
 Placed into *[create.sh](./create.sh)*.
 
-#### Building Docker Image
+##### Building Docker Image
 
 ```sh
 $ docker build -t volume:v1 .
@@ -105,7 +105,7 @@ $ docker build -t volume:v1 .
 
 Placed into *[build.sh](./build.sh)*.
 
-#### Create a container based on `volume:v1` image
+##### Create a container based on `volume:v1` image
 
 ```sh
 $ docker container run --rm -d --name volume-test volume:v1
