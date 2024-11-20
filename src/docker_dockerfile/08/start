@@ -1,0 +1,29 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Building Docker Image with default argument
+./build.sh "$REPO:v1"
+
+# Verify the Image
+./verify.sh
+
+# Running container argv:v1
+./run.sh "${LABEL}-1" $REPO v1
+
+# List the Container
+./list.sh
+
+# Passing the argument during image build time
+docker image build -t "$REPO:v2" --build-arg WELCOME_USER=Savio .
+
+# Verify the Image
+./verify.sh
+
+# Running container argv:v1
+./run.sh "${LABEL}-2" $REPO v2
+
+# List the Containers
+./list.sh
