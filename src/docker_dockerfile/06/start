@@ -1,0 +1,53 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Building Docker image
+./build.sh "$REPO:v1" build1.Dockerfile
+
+# Verify the Image
+./verify.sh
+
+# Create a Container
+./run.sh "${LABEL}-1" $REPO v1
+
+# List the Container
+./list.sh
+
+# Building Docker image
+./build.sh "$REPO:v2" build2.Dockerfile
+
+# Verify the Image
+./verify.sh
+
+# Create a Container
+./run.sh "${LABEL}-2" $REPO v2
+
+# List the Container
+./list.sh
+
+# Building Docker image
+./build.sh "$REPO:v3" build3.Dockerfile
+
+# Verify the Image
+./verify.sh
+
+# Create a Container
+./run.sh "${LABEL}-3" $REPO v3
+
+# List the Container
+./list.sh
+
+# Building Docker image
+./build.sh "$REPO:v4" build4.Dockerfile
+
+# Verify the Image
+./verify.sh
+
+# Create a Container
+./run.sh "${LABEL}-4" $REPO v4
+
+# List the Container
+./list.sh
