@@ -1,0 +1,27 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Building Docker Image
+./build.sh "$REPO:v1"
+
+# Verify the Image
+./verify.sh
+
+# Running container env:v1
+./run.sh "${LABEL}-1" $REPO v1
+
+# List the Container
+./list.sh
+
+# Override existing env while running container
+echo -e "${YELLOW}Running the container with overriding existing env${ENDCOLOR}"
+docker container run --name "${LABEL}-2" --env WELCOME_MESSAGE="Welcome to Docker Workshop" "${REPO}:v1"
+
+# Verify the Image
+./verify.sh
+
+# List the Containers
+./list.sh
