@@ -5,7 +5,7 @@
 source VARS.sh
 
 # Writing a Dockerfile with ARG instruction
-v1="
+content="
 FROM alpine:3.9.3\n
 LABEL maintainer=\"Collabnix\"\n
 \n
@@ -15,4 +15,4 @@ RUN echo \"Welcome \$WELCOME_USER, to Docker World!\" > message.txt\n
 CMD cat message.txt\n
 "
 
-echo -en "" $v1 | sed 's/ //' > Dockerfile
+echo -en "" $content | sed 's/ //' > Dockerfile
