@@ -1,0 +1,42 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Building Docker Image
+./build.sh "$REPO:v1"
+
+# Verify the Image
+./verify.sh
+
+# Running container env:v1
+./run.sh "${LABEL}-test" $REPO v1
+
+# List the Container
+./list.sh
+
+# Persist volume name
+VOL=$(
+    docker container inspect -f \
+    '{{ range .Mounts }}{{ .Name }}{{ end }}' "${LABEL}-test"
+)
+
+printf "VOLUME=$VOL\n" > TMP.sh
+
+# Checking the volume name of the container
+./inspect.sh container "${LABEL}-test" .Mounts
+./inspect.sh volume $VOL .Name
+
+# Listout Volume in the host
+./listout.sh
+
+# Volume mount path in host
+./inspect.sh container "${LABEL}-test" "(index .Mounts 0).Source"
+./inspect.sh volume $VOL .Mountpoint
+
+# Create a file in the volume mounting folder
+sudo touch "/var/lib/docker/volumes/$VOL/_data/mytestfile.txt"
+
+# Checking file is there in run container
+docker container exec -it "${LABEL}-test" ls $MOUNT
