@@ -1,23 +1,7 @@
 # Lab #5 : Create an image with ENTRYPOINT instruction
 https://dockerlabs.collabnix.com/beginners/dockerfile/Dockerfile-ENTRYPOINT.html
 
-The `ENTRYPOINT` instruction make your container run as an executable.
-`ENTRYPOINT` can be configured in two forms:
-
-- **Exec Form**
-
-    ```docker
-    ENTRYPOINT [“executable”, “param1”, “param2”]
-    ```
-
-- **Shell Form**
-
-    ```docker
-    ENTRYPOINT command param1 param2
-    ```
-
-If an image has an `ENTRYPOINT` if you pass an argument it, while running container it wont override the existing entrypoint, it will append what you passed with the entrypoint.To override the existing `ENTRYPOINT` you should user `--entrypoint` flag when running container.
-
+- [Overview](#overview)
 - [Assignment](#assignment)
 - [Command Line Tools](#command-line-tools)
   - [Start the service](#start-the-service)
@@ -40,6 +24,24 @@ If an image has an `ENTRYPOINT` if you pass an argument it, while running contai
 - [Troubleshooting](#troubleshooting)
   - [Fix `permission denied` error](#fix-permission-denied-error)
   - [Fix `failed to read dockerfile` error](#fix-failed-to-read-dockerfile-error)
+
+## Overview
+The `ENTRYPOINT` instruction make your container run as an executable.
+`ENTRYPOINT` can be configured in two forms:
+
+- **Exec Form**
+
+    ```docker
+    ENTRYPOINT [“executable”, “param1”, “param2”]
+    ```
+
+- **Shell Form**
+
+    ```docker
+    ENTRYPOINT command param1 param2
+    ```
+
+If an image has an `ENTRYPOINT` if you pass an argument it, while running container it wont override the existing entrypoint, it will append what you passed with the entrypoint.To override the existing `ENTRYPOINT` you should user `--entrypoint` flag when running container.
 
 ## Assignment
 - Create an image with `ENTRYPOINT` instruction(Exec Form)
