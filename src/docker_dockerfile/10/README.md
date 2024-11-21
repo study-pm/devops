@@ -117,7 +117,7 @@ Placed into *[run.sh](./run.sh)*.
 
 ##### Checking the volume name of the container
 ```sh
-$ docker container inspect -f '' volume-test
+$  docker container inspect -f '{{ (index .Mounts 0).Name }}' volume-test
 ed09456a448934218f03acbdaa31f465ebbb92e0d45e8284527a2c538cc6b016
 ```
 
@@ -139,8 +139,9 @@ You will see the volume has been created.
 
 ##### Volume mount path in host
 ```sh
-$ docker container inspect -f '' volume-test
+$ docker container inspect -f '{{ (index .Mounts 0).Source }}' volume-test
 /var/lib/docker/volumes/ed09456a448934218f03acbdaa31f465ebbb92e0d45e8284527a2c538cc6b016/_data
+
 ```
 
 Specific commands may include:

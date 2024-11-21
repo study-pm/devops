@@ -113,7 +113,7 @@ Placed into *[run.sh](./run.sh)*.
 #### Inspecting the `EXPOSE` port in the image
 
 ```sh
-$ docker image inspect --format= expose:v1
+$ docker image inspect --format={{.ContainerConfig.ExposedPorts}} expose:v1
 ```
 
 Specific command should be like this:
