@@ -1,14 +1,7 @@
 # Lab #8: Create an image with ARG instruction
 https://dockerlabs.collabnix.com/beginners/dockerfile/arg.html
 
-The `ARG` directive in *Dockerfile* defines the parameter name and defines its default value. This default value can be overridden by the `--build-arg <parameter name>=<value>` in the build command docker build.
-
-```docker
-`ARG <parameter name>[=<default>]`
-```
-
-The build parameters have the same effect as `ENV`, which is to set the environment variables. The difference is that the environment variables of the build environment set by `ARG` will not exist in the future when the container is running. But don’t use `ARG` to save passwords and the like, because `docker history` can still see all the values.
-
+- [Overview](#overview)
 - [Assignment](#assignment)
 - [Command Line Tools](#command-line-tools)
   - [Start the service](#start-the-service)
@@ -36,6 +29,15 @@ The build parameters have the same effect as `ENV`, which is to set the environm
 - [Troubleshooting](#troubleshooting)
   - [Fix `permission denied` error](#fix-permission-denied-error)
   - [Fix `failed to read dockerfile` error](#fix-failed-to-read-dockerfile-error)
+
+## Overview
+The `ARG` directive in *Dockerfile* defines the parameter name and defines its default value. This default value can be overridden by the `--build-arg <parameter name>=<value>` in the build command docker build.
+
+```docker
+`ARG <parameter name>[=<default>]`
+```
+
+The build parameters have the same effect as `ENV`, which is to set the environment variables. The difference is that the environment variables of the build environment set by `ARG` will not exist in the future when the container is running. But don’t use `ARG` to save passwords and the like, because `docker history` can still see all the values.
 
 ## Assignment
 - Writing a Dockerfile with `ARG` instruction
