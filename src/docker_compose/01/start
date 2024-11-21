@@ -1,0 +1,4 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+docker compose version

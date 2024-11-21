@@ -1,0 +1,11 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source CONST.sh
+
+echo -e "${YELLOW}Docker compose${ENDCOLOR}"
+docker compose --help
+
+echo -e "${YELLOW}Docker compose build${ENDCOLOR}"
+docker compose build --help

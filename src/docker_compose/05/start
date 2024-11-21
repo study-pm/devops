@@ -1,0 +1,15 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source CONST.sh
+
+# Validate the docker compose file
+./validate.sh
+
+# Pull down the service images
+docker compose pull
+
+# Checking the images in local
+./verify.sh nginx alpine
+./verify.sh mysql 5.7

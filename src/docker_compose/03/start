@@ -1,0 +1,20 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source CONST.sh
+
+echo -e "${YELLOW}Validate the docker compose file${ENDCOLOR}"
+docker compose config
+
+echo -e "${RED}\nBreak the compose file\n${ENDCOLOR}"
+sed -i -e 's/services/service/g' docker-compose.yml
+
+echo -e "${YELLOW}Validate the docker compose file${ENDCOLOR}"
+docker compose config
+
+echo -e "${GREEN}\nFix the compose file\n${ENDCOLOR}"
+sed -i -e 's/service/services/g' docker-compose.yml
+
+echo -e "${YELLOW}Validate the docker compose file${ENDCOLOR}"
+docker compose config

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source CONST.sh
+source .env
+
+# Validate the docker compose file
+./validate.sh
+
+# Build the image using docker-compose
+./build.sh
+
+# Check the image have created
+./verify.sh $IMG_NAME $IMG_TAG
