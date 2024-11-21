@@ -1,8 +1,7 @@
 # Lab #7: RUN instruction
 https://dockerlabs.collabnix.com/beginners/dockerfile/Lab%237_RUN_instruction.html
 
-The `RUN` instruction execute command on top of the below layer and create a new layer.
-
+- [Overview](#overview)
 - [Assignment](#assignment)
 - [Command Line Tools](#command-line-tools)
   - [Start the service](#start-the-service)
@@ -36,6 +35,8 @@ The `RUN` instruction execute command on top of the below layer and create a new
   - [Fix `permission denied` error](#fix-permission-denied-error)
   - [Fix `failed to read dockerfile` error](#fix-failed-to-read-dockerfile-error)
 
+## Overview
+The `RUN` instruction execute command on top of the below layer and create a new layer.
 
 `RUN` instruction can be wrote in two forms:
 
