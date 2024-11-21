@@ -1,0 +1,5 @@
+# Bringup the containers
+docker compose up -d
+
+# List out the images used by the containers
+docker compose images
