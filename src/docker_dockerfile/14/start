@@ -1,0 +1,39 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Building the base Docker Image
+./build.sh "$NAMESPACE/$REPO"
+
+# Verify the Image
+./verify.sh
+
+# Check that the nginx config file exists
+./run.sh $LABEL $NAMESPACE/$REPO
+
+# List the Containers
+./list.sh
+
+# Check the initial container state
+./inspect.sh container ".State.Health.Status" $LABEL
+
+# Wait for container to run
+sleep 5;
+
+# Check if nginx is healthy
+./inspect.sh container ".State.Health.Status" $LABEL
+
+# Make Docker container Unhealthy and check
+printf "${YELLOW}Removing the nginx config\n$ENDCOLOR"
+docker exec $LABEL rm /etc/nginx/nginx.conf
+
+# Check if nginx is healthy
+sleep 5; ./inspect.sh container ".State.Health.Status" $LABEL
+
+# Creating the nginx.conf file and Making the container go healthy
+docker exec $LABEL touch /etc/nginx/nginx.conf
+
+# Check if nginx is healthy
+sleep 5; ./inspect.sh container ".State.Health.Status" $LABEL
