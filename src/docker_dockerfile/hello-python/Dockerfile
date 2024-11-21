@@ -1,0 +1,8 @@
+FROM ubuntu
+LABEL name=learning-docker
+RUN apt-get update
+RUN apt-get install -y python3
+ADD hello.py /home/hello.py
+ADD a.py /home/a.py
+CMD ["/home/hello.py"]
+ENTRYPOINT ["python3"]

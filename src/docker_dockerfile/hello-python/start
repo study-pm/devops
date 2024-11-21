@@ -1,0 +1,23 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Building the Default Docker image
+./build.sh $NAMESPACE/$REPO
+
+# Verify the Image
+./verify.sh
+
+# Running the Image
+./run.sh $LABEL-default $NAMESPACE/$REPO
+
+# List the Containers
+./list.sh
+
+# Running the Image with overriding CMD command
+docker run --name $LABEL-overriden $NAMESPACE/$REPO /home/a.py
+
+# List the Containers
+./list.sh
