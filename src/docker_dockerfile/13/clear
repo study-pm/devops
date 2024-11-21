@@ -7,6 +7,8 @@ source VARS.sh
 # Remove the images
 ./rm-img.sh "$NAMESPACE/no_$REPO"
 ./rm-img.sh "$NAMESPACE/$REPO"
+# ./rm-img.sh "$NAMESPACE/ruby"
+# ./rm-img.sh "$NAMESPACE/rails"
 
 # Verify the Images (must be empty)
 ./verify.sh

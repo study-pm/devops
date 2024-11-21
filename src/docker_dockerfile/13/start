@@ -15,3 +15,9 @@ source VARS.sh
 
 # Verify the Image
 ./verify.sh
+
+# Building the base Docker Image
+# ./build.sh "$NAMESPACE/ruby" build1.Dockerfile
+
+# Building the downstream Docker Image
+# ./build.sh "$NAMESPACE/rails" build2.Dockerfile
