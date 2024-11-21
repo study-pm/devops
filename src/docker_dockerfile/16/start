@@ -1,0 +1,23 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Building the base Docker Image
+./build.sh $NAMESPACE/$REPO
+
+# Verify the Image
+./verify.sh
+
+# Check that the nginx config file exists
+./run.sh "${LABEL}1" $NAMESPACE/$REPO
+
+# List the Containers
+./list.sh
+
+# Pass a command line argument
+docker run --name "${LABEL}2" $NAMESPACE/$REPO /etc/resolv.conf
+
+# List the Containers
+./list.sh
