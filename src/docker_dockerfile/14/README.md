@@ -1,15 +1,7 @@
 # Lab #14: Create a Docker Image with HEALTHCHECK instruction
 https://dockerlabs.collabnix.com/beginners/dockerfile/healthcheck.html
 
-The `HEALTHCHECK` directive tells Docker how to determine if the state of the container is normal. This was a new directive introduced during Docker 1.12. Before the `HEALTHCHECK` directive, the Docker engine can only determine if the container is in a state of abnormality by whether the main process in the container exits. In many cases, this is fine, but if the program enters a deadlock state, or an infinite loop state, the application process does not exit, but the container is no longer able to provide services. Prior to 1.12, Docker did not detect this state of the container and would not reschedule it, causing some containers to be unable to serve, but still accepting user requests.
-
-The syntax look like:
-```docker
-HEALTHCHECK [options] CMD <command>:
-```
-
-The above syntax set the command to check the health of the container
-
+- [Overview](#overview)
 - [How does it work?](#how-does-it-work)
 - [What options does `HEALTHCHECK` support?](#what-options-does-healthcheck-support)
 - [Assignment](#assignment)
@@ -49,6 +41,16 @@ The above syntax set the command to check the health of the container
 - [Troubleshooting](#troubleshooting)
   - [Fix `permission denied` error](#fix-permission-denied-error)
   - [Fix `failed to read dockerfile` error](#fix-failed-to-read-dockerfile-error)
+
+## Overview
+The `HEALTHCHECK` directive tells Docker how to determine if the state of the container is normal. This was a new directive introduced during Docker 1.12. Before the `HEALTHCHECK` directive, the Docker engine can only determine if the container is in a state of abnormality by whether the main process in the container exits. In many cases, this is fine, but if the program enters a deadlock state, or an infinite loop state, the application process does not exit, but the container is no longer able to provide services. Prior to 1.12, Docker did not detect this state of the container and would not reschedule it, causing some containers to be unable to serve, but still accepting user requests.
+
+The syntax look like:
+```docker
+HEALTHCHECK [options] CMD <command>:
+```
+
+The above syntax set the command to check the health of the container
 
 ## How does it work?
 When a `HEALTHCHECK` instruction is specified in an image, the container is started with it, the initial state will be starting, and will become healthy after the `HEALTHCHECK` instruction is checked successfully. If it fails for a certain number of times, it will become unhealthy.
@@ -97,6 +99,7 @@ There are multiple underlying scripts used for building the service functions. T
 #### Pre-requisite
 There should be the following files in your working directory:
 - *Dockerfile* (committed)
+- *.config* (ignored by VCS)
 
 In case any of them missing, run the *[create.sh](./create.sh)* script before executing the *start* command.
 

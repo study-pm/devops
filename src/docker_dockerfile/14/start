@@ -4,6 +4,11 @@
 
 source VARS.sh
 
+# Create config file if does not exist
+test -f .config || cp .config.dist .config
+
+source .config
+
 # Building the base Docker Image
 ./build.sh "$NAMESPACE/$REPO"
 
@@ -20,20 +25,21 @@ source VARS.sh
 ./inspect.sh container ".State.Health.Status" $LABEL
 
 # Wait for container to run
-sleep 5;
+sleep ${DELAY-5};
 
 # Check if nginx is healthy
 ./inspect.sh container ".State.Health.Status" $LABEL
 
 # Make Docker container Unhealthy and check
-printf "${YELLOW}Removing the nginx config\n$ENDCOLOR"
+printf "${RED}Removing the nginx config\n$ENDCOLOR"
 docker exec $LABEL rm /etc/nginx/nginx.conf
 
 # Check if nginx is healthy
-sleep 5; ./inspect.sh container ".State.Health.Status" $LABEL
+sleep ${DELAY-5}; ./inspect.sh container ".State.Health.Status" $LABEL
 
 # Creating the nginx.conf file and Making the container go healthy
+printf "${GREEN}Restoring the nginx config\n$ENDCOLOR"
 docker exec $LABEL touch /etc/nginx/nginx.conf
 
 # Check if nginx is healthy
-sleep 5; ./inspect.sh container ".State.Health.Status" $LABEL
+sleep ${DELAY-5}; ./inspect.sh container ".State.Health.Status" $LABEL

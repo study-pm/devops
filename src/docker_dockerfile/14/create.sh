@@ -12,3 +12,5 @@ EXPOSE 80\n
 
 echo -en "" $content | sed 's/ //' > Dockerfile
 
+# Write a distribution sample config file
+echo -e "DELAY=128" > .config.dist
