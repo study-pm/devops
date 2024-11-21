@@ -1,0 +1,11 @@
+services:
+  customNginx:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    image: saviovettoor/custom_nginx_dockerlabs:v1
+  customHttpd:
+    build:
+      context: .
+      dockerfile: httpd.Dockerfile
+    image: saviovettoor/custom_httpd_dockerlabs:v1
