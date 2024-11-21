@@ -1,8 +1,7 @@
 # Lab #9: ENV instruction
 https://dockerlabs.collabnix.com/beginners/dockerfile/Lab_%239_ENV_instruction.html
 
-The `ENV` instruction in Dockerfile sets the environment variable for your container when you start. The default value can be overridden by passing `--env <key>=<value>` when you start the container.
-
+- [Overview](#overview)
 - [Assignment](#assignment)
 - [Command Line Tools](#command-line-tools)
   - [Start the service](#start-the-service)
@@ -29,6 +28,9 @@ The `ENV` instruction in Dockerfile sets the environment variable for your conta
 - [Troubleshooting](#troubleshooting)
   - [Fix `permission denied` error](#fix-permission-denied-error)
   - [Fix `failed to read dockerfile` error](#fix-failed-to-read-dockerfile-error)
+
+## Overview
+The `ENV` instruction in Dockerfile sets the environment variable for your container when you start. The default value can be overridden by passing `--env <key>=<value>` when you start the container.
 
 ## Assignment
 - Writing a Dockerfile with `ENV` instruction
