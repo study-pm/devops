@@ -1,12 +1,7 @@
 # Lab #2: Create an image with ADD instruction
 https://dockerlabs.collabnix.com/beginners/dockerfile/Lab-2-Create-an-image-with-ADD-instruction.html
 
-`COPY` and `ADD` are both Dockerfile instructions that serve similar purposes. They let you copy files from a specific location into a Docker image.
-
-`COPY` takes in a src and destination. It only lets you copy in a local file or directory from your host (the machine building the Docker image) into the Docker image itself.
-
-`ADD` lets you do that too, but it also supports 2 other sources. First, you can use a URL instead of a local file / directory. Secondly, you can extract a tar file from the source directly into the destination.
-
+- [Overview](#overview)
 - [Assignment](#assignment)
 - [Command Line Tools](#command-line-tools)
   - [Start the service](#start-the-service)
@@ -23,6 +18,14 @@ https://dockerlabs.collabnix.com/beginners/dockerfile/Lab-2-Create-an-image-with
 - [Troubleshooting / Utils / Trivia](#troubleshooting--utils--trivia)
   - [`permission denied` error](#permission-denied-error)
   - [`failed to read dockerfile` error](#failed-to-read-dockerfile-error)
+
+## Overview
+`COPY` and `ADD` are both Dockerfile instructions that serve similar purposes. They let you copy files from a specific location into a Docker image.
+
+`COPY` takes in a src and destination. It only lets you copy in a local file or directory from your host (the machine building the Docker image) into the Docker image itself.
+
+`ADD` lets you do that too, but it also supports 2 other sources. First, you can use a URL instead of a local file / directory. Secondly, you can extract a tar file from the source directly into the destination.
+
 
 ## Assignment
 - Create an image with `ADD` instruction
