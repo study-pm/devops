@@ -1,13 +1,7 @@
 # Lab #6: WORKDIR instruction
 https://dockerlabs.collabnix.com/beginners/dockerfile/WORKDIR_instruction.html
 
-The `WORKDIR` directive in *Dockerfile* defines the working directory for the rest of the instructions in the Dockerfile. The `WORKDIR` instruction won't create a new layer in the image but will add metadata to the image config. If the `WORKDIR` doesn’t exist, it will be created even if it’s not used in any subsequent *Dockerfile* instruction. You can have multiple `WORKDIR` in same Dockerfile. If a relative path is provided, it will be relative to the previous `WORKDIR` instruction.
-```docker
-WORKDIR /path/to/workdir
-```
-
-If no `WORKDIR` is specified in the Dockerfile then the default path is `/`. The `WORKDIR` instruction can resolve environment variables previously set in *Dockerfile* using `ENV`.
-
+- [Overview](#overview)
 - [Assignment](#assignment)
 - [Command Line Tools](#command-line-tools)
   - [Start the service](#start-the-service)
@@ -44,6 +38,14 @@ If no `WORKDIR` is specified in the Dockerfile then the default path is `/`. The
 - [Troubleshooting](#troubleshooting)
   - [Fix `permission denied` error](#fix-permission-denied-error)
   - [Fix `failed to read dockerfile` error](#fix-failed-to-read-dockerfile-error)
+
+## Overview
+The `WORKDIR` directive in *Dockerfile* defines the working directory for the rest of the instructions in the Dockerfile. The `WORKDIR` instruction won't create a new layer in the image but will add metadata to the image config. If the `WORKDIR` doesn’t exist, it will be created even if it’s not used in any subsequent *Dockerfile* instruction. You can have multiple `WORKDIR` in same Dockerfile. If a relative path is provided, it will be relative to the previous `WORKDIR` instruction.
+```docker
+WORKDIR /path/to/workdir
+```
+
+If no `WORKDIR` is specified in the Dockerfile then the default path is `/`. The `WORKDIR` instruction can resolve environment variables previously set in *Dockerfile* using `ENV`.
 
 ## Assignment
 - Dockerfile with `WORKDIR` instruction
