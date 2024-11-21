@@ -1,14 +1,7 @@
 # Lab #3: Create an image with COPY instruction
 https://dockerlabs.collabnix.com//beginners/dockerfile/lab4_dockerfile_copy.html
 
-The `COPY` instruction copies files or directories from source and adds them to the filesystem of the container at destination.
-
-Two form of `COPY` instruction
-```sh
-COPY [--chown=<user>:<group>] <src>... <dest>
-COPY [--chown=<user>:<group>] ["<src>",... "<dest>"] (this form is required for paths containing whitespace)
-```
-
+- [Overview](#overview)
 - [Assignment](#assignment)
 - [Command Line Tools](#command-line-tools)
   - [Start the service](#start-the-service)
@@ -29,6 +22,15 @@ COPY [--chown=<user>:<group>] ["<src>",... "<dest>"] (this form is required for 
 - [Troubleshooting / Utils / Trivia](#troubleshooting--utils--trivia)
   - [`permission denied` error](#permission-denied-error)
   - [`failed to read dockerfile` error](#failed-to-read-dockerfile-error)
+
+## Overview
+The `COPY` instruction copies files or directories from source and adds them to the filesystem of the container at destination.
+
+Two form of `COPY` instruction
+```sh
+COPY [--chown=<user>:<group>] <src>... <dest>
+COPY [--chown=<user>:<group>] ["<src>",... "<dest>"] (this form is required for paths containing whitespace)
+```
 
 ## Assignment
 - Create an image with `COPY` instruction
