@@ -1,0 +1,29 @@
+#!/bin/bash
+
+### DESCRIPTION: Runs the full command sequence
+
+source VARS.sh
+
+# Building the Default Docker image
+./build.sh $NAMESPACE/$REPO:v1 build1.Dockerfile
+
+# Verify the Image
+./verify.sh
+
+# Running the Image
+./run.sh $LABEL-default $NAMESPACE/$REPO v1
+
+# List the Containers
+./list.sh
+
+# Building the Custom Docker image
+./build.sh $NAMESPACE/$REPO:v2 build2.Dockerfile
+
+# Verify the Image
+./verify.sh
+
+# Running the Image
+./run.sh $LABEL-custom $NAMESPACE/$REPO v2
+
+# List the Containers
+./list.sh
