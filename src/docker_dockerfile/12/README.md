@@ -1,8 +1,6 @@
 # Lab #12: LABEL Instruction
 https://dockerlabs.collabnix.com/beginners/dockerfile/Label_instruction.html
 
-You can add labels to your image to help organize images by project, record licensing information, to aid in automation, or for other reasons. For each label, add a line beginning with `LABEL` and with one or more key-value pairs. The following examples show the different acceptable formats.
-
 - [Overview](#overview)
 - [Assignment](#assignment)
 - [Command Line Tools](#command-line-tools)
@@ -37,6 +35,8 @@ You can add labels to your image to help organize images by project, record lice
   - [Fix `failed to read dockerfile` error](#fix-failed-to-read-dockerfile-error)
 
 ## Overview
+You can add labels to your image to help organize images by project, record licensing information, to aid in automation, or for other reasons. For each label, add a line beginning with `LABEL` and with one or more key-value pairs. The following examples show the different acceptable formats.
+
 Docker offers support to add labels into images as a way to add custom metadata on them.
 
 The label syntax on your Dockerfile is as follows:
