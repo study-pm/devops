@@ -1,0 +1,19 @@
+# Build container and network
+
+## Won’t start the container
+docker compose up --no-start
+
+## Checking the status
+docker compose ps
+
+# Bringup the containers
+docker compose up -d
+
+## Checking webserver respone
+curl http://localhost
+
+## Checking dbserver respone
+docker exec -it Mysqldb mysql -u root -p
+
+## Rebuild the docker image and bring the stack up
+docker compose up -d --build
