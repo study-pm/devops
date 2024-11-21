@@ -1,8 +1,7 @@
 # Lab #11: EXPOSE instruction
 https://dockerlabs.collabnix.com/beginners/dockerfile/Lab%2311_EXPOSE_instruction.html
 
-The `EXPOSE` instruction expose a port, the protocol can be UDP or TCP associated with the indicated port, default is TCP with no specification. The `EXPOSE` won’t be able to map the ports on the host machine. Regardless of the `EXPOSE` settings, `EXPOSE` port can be override using `-p` flag while starting the container.
-
+- [Overview](#overview)
 - [Assignment](#assignment)
 - [Command Line Tools](#command-line-tools)
   - [Start the service](#start-the-service)
@@ -37,6 +36,9 @@ The `EXPOSE` instruction expose a port, the protocol can be UDP or TCP associate
 - [Troubleshooting](#troubleshooting)
   - [Fix `permission denied` error](#fix-permission-denied-error)
   - [Fix `failed to read dockerfile` error](#fix-failed-to-read-dockerfile-error)
+
+## Overview
+The `EXPOSE` instruction expose a port, the protocol can be UDP or TCP associated with the indicated port, default is TCP with no specification. The `EXPOSE` won’t be able to map the ports on the host machine. Regardless of the `EXPOSE` settings, `EXPOSE` port can be override using `-p` flag while starting the container.
 
 ## Assignment
 - Create an image with `EXPOSE` instruction
